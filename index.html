@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Parser</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/full-width-pics.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Full Width Image Header with Logo -->
+    <!-- Image backgrounds are set within the full-width-pics.css file. -->
+    <header class="image-bg-fluid-height">
+        <!--<img class="img-responsive img-center" src="img/logo_softtek.png" alt="">-->
+    </header>
+
+    <!-- Content Section -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="section-heading">Parser</h1>
+                    <p class="lead section-lead"></p>
+                    <p class="section-paragraph"></p>
+                    <div class="form-group">
+                        
+                        <label for="complejidad">Complejidad</label> <br/>
+                        <select class="form-control" id="complejidad">
+                            <option value="Null">Null</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        
+                        <label for="proyecto">Proyecto</label> <br/>
+                        <select class="form-control" id="proyecto">
+                            <option value="RnD IT FY16 Quality Management Systems">RnD IT FY16 Quality Management Systems</option>
+                            <option>EG IT-FY15 ATL DC Exit and Application Modernization</option>
+                            <option>HPE Tax Audit DW DB:Available for task assingment</option>
+                            <option>FY16 SDLC Enhancements</option>
+                        </select>
+                        
+                        <label for="actividad">Actividad</label> <br/>
+                        <select class="form-control" id="actividad">
+                            <option value="Available for task assignment">Available for task assignment</option>
+                            <option>Closeout Activities</option>
+                            <option>Code Development</option> 
+                            <option>Data / System Quality</option> 
+                            <option>Design Activities</option> 
+                            <option>Implementation Activities</option> 
+                            <option>Project Management</option> 
+                            <option>Rework (Bug)</option> 
+                            <option>Rework (CR)</option>
+                            <option>Scoping Activities</option> 
+                            <option>Support Activities</option> 
+                            <option>Testing Activities</option> 
+                            <option>Training - Non Project Related</option>
+                            <option>Training - Project Related</option> 
+                            <option>Warranty Activities</option> 
+                            <option>Customer Problem Management</option>
+                            <option>Softtek Internal Activity</option> 
+                            <option>Softtek Process Improvement</option>
+                        </select>
+                        
+                        <label for="detalle">Detalle</label> <br/>                        
+                        <input type="text" class="form-control" id="detalle"> <br/>
+                        
+                        <button type="submit" class="btn btn-default" onclick="parse()">Parse</button><br/><br/>
+                        
+                        <label for="detalle">Resultado</label> <br/>                        
+                        <input type="text" class="form-control" id="resultado"> <br/>
+                        
+                        <button type="submit" class="btn btn-default" onclick="copyToClipboard()">Copiar al portapapeles</button><br/><br/>
+                        
+                        <br/>
+                        <br/>
+                        Si tu proyecto no aparece en la lista mandar un correo a christian.medinilla@softtek.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function parse()
+        {
+           var complejidad =  $("#complejidad").val();
+           var proyecto = $("#proyecto").val();
+           var actividad = $("#actividad").val();
+           var detalle = $("#detalle").val();
+           detalle = detalle.replace(":","");           
+           var resultado = complejidad + ":" + proyecto + ":" + actividad + ":" + detalle;
+           
+           $('#resultado').val(resultado);           
+           
+        }   
+        
+        function copyToClipboard() 
+        {
+            window.prompt("Copiar al portapapeles: Ctrl+C, Enter", $("#resultado").val());
+        }
+    </script>
+    <!-- Fixed Height Image Aside -->
+    <!-- Image backgrounds are set within the full-width-pics.css file. -->
+    <aside class="image-bg-fixed-height"></aside>
+
+    <!-- Content Section 
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="section-heading"></h1>
+                    <p class="lead section-lead"></p>
+                    <p class="section-paragraph"></p>
+                </div>
+            </div>
+    -->
+            <!-- /.row -->
+      <!--  </div>-->
+        <!-- /.container -->
+    <!--</section>-->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Softtek 2016</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
